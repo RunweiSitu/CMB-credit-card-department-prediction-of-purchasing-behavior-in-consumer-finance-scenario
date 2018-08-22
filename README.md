@@ -1,8 +1,7 @@
 # CMB-credit-card-department-prediction-of-purchasing-behavior-in-consumer-finance-scenario
 招商银行信用卡中心金融数据大赛--消费金融场景下的用户购买预测 rank2
 ----------------------------------------------------------
-https://www.datafountain.cn/competitions/287/details
-运行环境：python, jupyter notebook<br>
+https://www.datafountain.cn/competitions/287/details<br>
 ### 赛题回顾
 利用招商银行客户的个人属性、信用卡消费数据，以及部分客户在掌上生活APP上的一个月的操作行为日志，设计合理的特征工程与模型算法方案，
 预测客户在未来一周内（4月1日-7日），是否会购买掌上生活APP上的优惠券（包括饭票、影票等）。评测指标：AUC。<br>
