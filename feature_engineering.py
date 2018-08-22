@@ -4,13 +4,14 @@ from datetime import datetime
 import numpy as np
 from pandas.core.frame import DataFrame
 
-
-## 构造特征,保存到log_pre.csv
-## day_of_week_0_sum到day_of_week_6_sum表示用户周一到周日的模块点击次数
-## 将一天划分成多个时间段后，time_of_day_0_sum到time_of_day_6_sum 分别统计用户在各个时间段的模块点击次数
-## TCH_TYP_0_sum 和 TCH_TYP_2_sum 表示用户对不同事件类型的模块点击次数
-## click_count表示用户点击的模块总数
-## EVT_LBL_set_len表示用户点击了多少个独特的模块（跟click_count相比，去掉了重复的模块)
+"""
+构造特征,保存到log_pre.csv
+day_of_week_0_sum到day_of_week_6_sum表示用户周一到周日的模块点击次数
+将一天划分成多个时间段后，time_of_day_0_sum到time_of_day_6_sum 分别统计用户在各个时间段的模块点击次数
+TCH_TYP_0_sum 和 TCH_TYP_2_sum 表示用户对不同事件类型的模块点击次数
+click_count表示用户点击的模块总数
+EVT_LBL_set_len表示用户点击了多少个独特的模块（跟click_count相比，去掉了重复的模块)
+"""
 
 def log_pre():
     train_agg = pd.read_csv('train/train_agg.csv', sep='\t')
@@ -77,11 +78,12 @@ def log_pre():
     log_pre.to_csv('log_pre.csv', sep='\t', index=False)
 
 
-
-## 构造特征,保存到log_EVT_square.csv
-## 将用户的点击模块划分成三个级别EVT_LBL_1，EVT_LBL_2，EVT_LBL_3，统计用户在一个级别内对不同模块的点击次数
-## 如特征EVT_1_num_12表示用户对第一个级别的第12个模块的点击次数
-## 特征EVT_2_num_21表示用户对第二个级别的第21个模块的点击次数，依此类推。。。。。。
+"""
+构造特征,保存到log_EVT_square.csv
+将用户的点击模块划分成三个级别EVT_LBL_1，EVT_LBL_2，EVT_LBL_3，统计用户在一个级别内对不同模块的点击次数
+如特征EVT_1_num_12表示用户对第一个级别的第12个模块的点击次数
+特征EVT_2_num_21表示用户对第二个级别的第21个模块的点击次数，依此类推。。。。。。
+"""
 
 def log_EVT_square():
     train_log = pd.read_csv('train/train_log.csv', sep='\t')
@@ -171,9 +173,10 @@ def log_EVT_square():
     log_EVT_square = pd.concat([user, log_EVT_square], axis=1)
     log_EVT_square.to_csv('log_EVT_square.csv', sep='\t', index=False)
 
-
-##构造新的用户时间特征，与之前的log_pre.csv，log_EVT_square.csv合并，
-##形成最终的训练集all_train.csv，最终的测试集test_set.csv
+"""
+构造新的用户时间特征，与之前的log_pre.csv，log_EVT_square.csv合并，
+形成最终的训练集all_train.csv，最终的测试集test_set.csv
+"""
 
 def log_tabel(data):
     data['day'] = data['OCC_TIM'].map(lambda x: datetime.strptime(x, "%Y-%m-%d %H:%M:%S").day)
