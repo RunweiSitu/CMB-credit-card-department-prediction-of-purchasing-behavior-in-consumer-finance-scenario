@@ -2,6 +2,8 @@
 招商银行信用卡中心金融数据大赛--消费金融场景下的用户购买预测 rank2
 ----------------------------------------------------------
 https://www.datafountain.cn/competitions/287/details<br>
+### 说明
+feature_engineering.py提取特征，xgboost_predict.py使用单模型xgboost进行预测，<br> stacking.py使用stacking的方法进行预测
 ### 赛题回顾
 利用招商银行客户的个人属性、信用卡消费数据，以及部分客户在掌上生活APP上的一个月的操作行为日志，设计合理的特征工程与模型算法方案，
 预测客户在未来一周内（4月1日-7日），是否会购买掌上生活APP上的优惠券（包括饭票、影票等）。评测指标：AUC。<br>
