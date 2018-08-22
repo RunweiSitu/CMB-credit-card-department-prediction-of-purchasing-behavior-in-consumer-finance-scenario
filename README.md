@@ -74,4 +74,6 @@ feature_engineering.py提取特征，xgboost_predict.py使用单模型xgboost进
 ### 算法模型
 A榜阶段，我们使用的是单模型XGBoost。在B榜阶段，我们采用了stacking的模型融合方案。从树模型中挑选了结果较好的XGBoost, LightGBM以及GBDT作为
 第一层的基模型(base models)，同时为了多样性，选择线性模型lasso作为第二层的元模型(meta model)。结果表明，相比单模型，
-使用多个具有差异性的强学习算法进行融合，可以给性能带来较大的提升。B榜成绩提升了0.339个百分点。
+使用多个具有差异性的强学习算法进行融合，可以给性能带来较大的提升。B榜成绩提升了0.339个百分点。<br>
+
+![](https://github.com/LearningFromBest/CMB-credit-card-department-prediction-of-purchasing-behavior-in-consumer-finance-scenario/blob/master/stacking.png)
